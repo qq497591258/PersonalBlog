@@ -21,7 +21,6 @@ namespace App.Hosting.Controllers
     public class HomeController : WebController
     {
         private readonly IBannerService _bannerService;
-        private readonly IQQUserService _qQUserService;
         private readonly ILeavemsgService _leavemsgService;
         private readonly IArticleService _articleService;
         private readonly INoticeService _noticeService;
@@ -30,7 +29,6 @@ namespace App.Hosting.Controllers
         private readonly ITimeLineService _timeLineService;
 
         public HomeController(IBannerService bannerService,
-            IQQUserService qQUserService,
             ILeavemsgService leavemsgService,
             IArticleService articleService,
             INoticeService noticeService,
@@ -39,7 +37,6 @@ namespace App.Hosting.Controllers
             ITimeLineService timeLineService)
         {
             _bannerService = bannerService;
-            _qQUserService = qQUserService;
             _leavemsgService = leavemsgService;
             _articleService = articleService;
             _noticeService = noticeService;
@@ -203,39 +200,6 @@ namespace App.Hosting.Controllers
             return Json(link);
         }
 
-        /// <summary>
-        /// QQ授权登录
-        /// </summary>
-        /// <returns></returns>
-        public async Task<IActionResult> Login(string code, string state)
-        {
-            if (string.IsNullOrWhiteSpace(code) && string.IsNullOrWhiteSpace(state))
-            {
-                string referer = HttpContext.Request.Headers[HeaderNames.Referer].FirstOrDefault();
-                if (string.IsNullOrWhiteSpace(referer))
-                {
-                    referer = "/home/index";
-                }
-                return Json(_qQUserService.Authorize(referer));
-            }
-            else
-            {
-                var user = await _qQUserService.Login(code, state);
-                string url = HttpContext.Session.GetString("lib" + state);
-                if (string.IsNullOrWhiteSpace(url))
-                {
-                    url = "/home/index";
-                }
-                if (user != null)
-                {
-                    string json = JsonConvert.SerializeObject(user);
-                    HttpContext.Session.SetString("QQ_User", json);
-                }
-                HttpContext.Session.Remove("lib" + state);
-                return Redirect(url);
-            }
-
-        }
 
         /// <summary>
         /// 退出登录

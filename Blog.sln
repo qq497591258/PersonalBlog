@@ -13,8 +13,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Hosting", "App.Hosting\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppUnitTest", "AppUnitTest\AppUnitTest.csproj", "{D2F98C3F-D975-401C-9257-C103EE0ACF8D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{DCA6A15B-EC9D-44F3-ABF0-207936801542}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,12 +42,6 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{B6522208-F790-479D-B480-5DE9D82DDB52} = {DCA6A15B-EC9D-44F3-ABF0-207936801542}
-		{64F13115-7871-42EE-9B51-C4F152DB77EA} = {DCA6A15B-EC9D-44F3-ABF0-207936801542}
-		{80E27D51-CA3A-4F68-8646-5449EF0F8CF3} = {DCA6A15B-EC9D-44F3-ABF0-207936801542}
-		{EE9A1446-1FB6-4676-9EDD-2A2A668231A4} = {DCA6A15B-EC9D-44F3-ABF0-207936801542}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FE39A620-A1A7-4FD5-A724-2B4D6DEA4F2F}
