@@ -10,7 +10,9 @@
 个人博客
 
 #### 软件架构
-使用.NET Core 5.0，已集成Redis、Autofac、Mapster映射、FluentValidation验证组件（支持自带model验证）、集成极验行为验证、layui开发
+使用.NET Core 6.0，已集成Redis、Autofac、Mapster映射、FluentValidation验证组件（支持自带model验证）、集成极验行为验证、layui开发
+
+add vue ui
 
 #### 使用说明
 
